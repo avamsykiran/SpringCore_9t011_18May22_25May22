@@ -145,7 +145,6 @@ Spring Framewok
             Annotation Based Bean Configuaration
             Java Based Bean Configuaration
 
-
             XML Based Bean Configuaration
 
                 <bean 
@@ -195,4 +194,38 @@ Spring Framewok
                     EmpService empService = context.getBean("es");
 
                     
+            Annotation Based Configuaration
 
+                @Configuaration
+                @ComponentScan("com.cts.hrapp")
+                public class MyConfig {
+
+                }
+
+                @Component("id")
+                    @Repository
+                    @Service
+                    @Controller
+                    @RestController
+                    @ControllerAdvice
+                    @Aspect
+                    ....etc.,
+                
+                @Scope
+
+                @PostConstruct
+                @PreDestroy
+
+                @Autowired
+                @Qualifier
+                @Primary
+                @Value
+
+                @PropertySource
+
+
+                Context Api
+
+                    ApplicationContext context = new AnnotationConfigApplicationContext(MyConfig.class);
+
+                    EmpService empService = context.getBean("es");
