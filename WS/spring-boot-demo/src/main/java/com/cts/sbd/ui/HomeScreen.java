@@ -1,4 +1,4 @@
-package com.cts.scd.ui;
+package com.cts.sbd.ui;
 
 import java.util.Scanner;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import com.cts.scd.service.Counter;
-import com.cts.scd.service.WelcomeService;
+import com.cts.sbd.service.Counter;
+import com.cts.sbd.service.WelcomeService;
 
 @Component
 public class HomeScreen {

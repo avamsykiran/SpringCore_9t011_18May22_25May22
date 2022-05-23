@@ -37,10 +37,12 @@ Spring Framewok
         Dependency Injection
         Various ways of Bean Configuarations
         Working with property files facilatating external configuaration
-        Aspect Oriented Prgramming
-
-        Spring Jdbc
+        
         Spring Boot
+
+        Spring Data
+        
+        Aspect Oriented Prgramming
     
 
     Dependency Injection
@@ -167,6 +169,8 @@ Spring Framewok
                         ref="beanIdOfTheDependencyBean"
                         value="primitveValueOrStrings"
                      />
+
+
                 </bean>
 
                 beans.xml
@@ -223,9 +227,69 @@ Spring Framewok
 
                 @PropertySource
 
-
                 Context Api
 
                     ApplicationContext context = new AnnotationConfigApplicationContext(MyConfig.class);
 
                     EmpService empService = context.getBean("es");
+            
+            Java Based Bean Configuaration
+
+                is not an alternate to Annontation Based Config but it is
+                a compliment to it.
+
+                we create objects all by our own java code and we will supply those
+                objects tot eh 'context' to mange them as benas.
+
+                @Configuaration
+                public class MyConfig {
+
+                    @Bean
+                    public Scanner scanner(){
+                        return new Scanner(System.in);
+                    }
+                }
+
+    Spring Boot
+    ---------------------------------
+
+        is a spring framework module that offers 
+            1. AutoConfiguaration
+            2. Rapid Application Development
+
+        AutoConfiguaration
+
+            Spring JDBC     we need to config a javax.sql.DataSource
+
+            Spring Web (MVC)    we need to config a View Engine, InternalResourceViewResolver,
+                                    DispatcherServlet, request mapping ...etc.,
+
+            Spring Security     we need to config RoleProviders, UserDetailsProviders....etc.,
+
+            and son for each spring module we need to do some module related configs.
+
+
+            If these modules are used along with SpringBoot, the spring boot will do the
+            minimum default configs for all those modules automatically.
+
+            Spring Boot project offers special module called 'starter packages'
+
+            spring.starter.web      =   spring.web + default configs
+            spring.starter.security =   spring.security + default configs
+            and so on.,....
+
+
+        As auto configs ensure a lot of boiler plate coding done, the applciation
+        developemnt gains pace and hence RAD is possible.
+
+        @SpringBootApplication  =   @Configuaration + @AutoConfig + @ComponentScan + @PropertySource
+
+
+        1. Use spring starter project wizard from STS.
+        2. Use http://start.spring.io - is a spring initlizer
+        3. Use Spring Boot CLI
+
+    Spring Data
+    ---------------------------------
+
+         
