@@ -286,10 +286,20 @@ Spring Framewok
 
 
         1. Use spring starter project wizard from STS.
-        2. Use http://start.spring.io - is a spring initlizer
+        2. Use http://start.spring.io - is a spring initializer
         3. Use Spring Boot CLI
 
-    Spring Data
+    Spring Data JPA
     ---------------------------------
+        
+        CrudRepository
+            |
+            |- JpaRepository
 
+
+        spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+        spring.datasource.username=root
+        spring.datasource.password=root
+        spring.datasource.url=jdbc:mysql://localhost:3306/booksDB?createDatabaseIfNotExist=true
+        spring.jpa.hibernate.ddl-auto=update
          
