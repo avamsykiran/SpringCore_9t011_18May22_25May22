@@ -295,6 +295,11 @@ Spring Framewok
         CrudRepository
             |
             |- JpaRepository
+                    Entity save(Entity e)
+                    void deleteById(T id)
+                    Optional<Entity> findById(T id)
+                    List<Entity> findAll()
+                    boolean existsById(T id)
 
 
         spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
@@ -303,3 +308,66 @@ Spring Framewok
         spring.datasource.url=jdbc:mysql://localhost:3306/booksDB?createDatabaseIfNotExist=true
         spring.jpa.hibernate.ddl-auto=update
          
+        @Entity
+        class Employee {
+            @Id
+            private Long empId;
+            private String name;
+            private Double basic;
+            private String emailId;
+            private String mobileNumber;
+            .........
+        }
+
+        interface EmployeeRepo extends JpaRepository<Employee,Long>{
+            boolean existsByMobileNumber(String mobileNumber);
+            Employee findByMobileNumber(String mobileNumber);
+            List<Employee> findAllByName(String name);
+
+            @Query("SELECT e FROM Employee e WHERE e.basic BETWEEN :start AND :end")   
+            List<Employee> findAllEarningInRange(double start,double end);
+        }
+
+        Assignemnt: A Menu driven employee management system
+        ----------------------------------------------
+        1. Add an Employee
+        2. List all Employees
+        3. Search an Employee by Email Id
+        4. List all Employees having given Name
+        5. Delete an Employee
+        6. Quit
+
+    Spring AOP
+    ---------------------------------
+
+        Aspect Oriented Programming
+
+            An aspect is a cross cutting concern, free of any bussiness logic but goes hand-in-hand
+            with the bussiness logic.
+
+            Logging
+            Authentication and Authorization
+            Transaction Management ..etc are a few aspects.
+
+
+            An aspect is executing an ADVICE at a choosen POINT-CUT out of various JOIN-POINTS
+            in an application.
+
+            Join Point - is any place in your application at which an advice must inteveine.
+
+                method calls
+                expection handling ...etc are join points
+
+            Point Cut - is an expression (method signature) through which a specific 
+                join point is choosen for an advice.
+
+            Advice  - is the piece of implementation tha has to execute at the coosen point-cut.
+
+            Aspect Types
+                Around              execute an advice before invoking and after executing a point-cut
+                Before              execute an advice before invoking a point-cut
+                After               execute an advice after executing a point-cut
+                After Throwing      execute an advice after a point-cut throws a excepton
+                After Returning     execute an advice after a point-cut returns a value
+
+  
