@@ -370,4 +370,35 @@ Spring Framewok
                 After Throwing      execute an advice after a point-cut throws a excepton
                 After Returning     execute an advice after a point-cut returns a value
 
-  
+        PointCut Expression
+        ------------------------
+        "execution(* packageName.ClassName.methodName(...))"
+        
+        AspectJ Annotations
+        -------------------------
+        @EnableAspectJAutoProxy
+        @Aspect - Represents an aspect advice class.
+        @Before – Run before the method execution
+        @After – Run after the method returned a result
+        @AfterReturning – Run after the method returned a result, intercept the returned result as well.
+        @AfterThrowing – Run after the method throws an exception
+        @Around – Run around the method execution, combine all three advices above.
+        
+        
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.6.11</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.6.11</version>
+        </dependency>
